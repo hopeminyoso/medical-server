@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-// Replace the connection string with your actual MongoDB server connection string
-const uri = 'mongodb://localhost:27017/medical';
+const uri = 'mongodb://localhost:27017/medical server';
 
 // Create a new MongoDB client
 const client = new MongoClient(uri);

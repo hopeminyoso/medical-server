@@ -32,8 +32,6 @@ const getAllVisits = async (req, res) => {
   }
 };
 
-// Other visit-related controllers can be defined here
-
 module.exports = {
   captureVisit,
   getAllVisits,

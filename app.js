@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = process.env.PORT || 3000; // Set your preferred port
+const port = process.env.PORT || 27017;
 
 // Import database configuration
 const db = require('./config/database');
@@ -25,10 +25,10 @@ app.use(express.json());
 const patientRoutes = require('./routes/patientRoutes');
 const visitRoutes = require('./routes/visitRoutes');
 
-app.use('/api/patients', patientRoutes);
-app.use('/api/visits', visitRoutes);
+app.use('/routes/patients', patientRoutes);
+app.use('/routes/visits', visitRoutes);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${27017}`);
 });
 

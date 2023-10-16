@@ -5,10 +5,10 @@ const router = express.Router();
 const visitController = require('../controllers/visitController');
 
 // Define routes for capturing visit information
-router.post('/visits', visitController.captureVisit);
-router.get('/visits', visitController.getAllVisits);
-router.get('/visits/:visitId', visitController.getVisitById);
-router.put('/visits/:visitId', visitController.updateVisit);
-router.delete('/visits/:visitId', visitController.deleteVisit);
+router.post('/visit', visitController.captureVisit);
+router.get('/visit', visitController.getAllVisits);
+router.get('/visit/:visitId', visitController.getVisitById);
+router.put('/visit/:visitId', visitController.updateVisit);
+router.delete('/visit/:visitId', visitController.deleteVisit);
 
 module.exports = router;

@@ -1,16 +1,37 @@
+// Import the necessary modules
 const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables from .env file
 
-// MongoDB connection URL
-const dbURL = 'mongodb://localhost:27017/medical';
+// Retrieve the MongoDB URI from your .env file
+const mongoURI = process.env.MONGO_URI;
 
-// Connect to the MongoDB database
-mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to the MongoDB database');
-  })
-  .catch((error) => {
-    console.error('Error connecting to the database:', error);
+// Establish the MongoDB connection
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true, // MongoDB driver deprecated the old URL string parser
+  useUnifiedTopology: true, // Use the new server discovery and monitoring engine
+});
+
+// Get the default connection
+const db = mongoose.connection;
+
+// Handle MongoDB connection events
+db.on('connected', () => {
+  console.log('Connected to MongoDB');
+});
+
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
+db.on('disconnected', () => {
+  console.log('MongoDB disconnected');
+});
+
+// Gracefully close the MongoDB connection when the Node.js process exits
+process.on('SIGINT', () => {
+  db.close(() => {
+    console.log('MongoDB connection closed through app termination');
+    process.exit(0);
   });
+});
 
-// Export the Mongoose connection
-module.exports = mongoose.connection;
