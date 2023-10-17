@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = process.env.PORT || 27017;
+const port = process.env.PORT || 5000;
 
 // Import database configuration
 const db = require('./config/database');
@@ -29,6 +29,6 @@ app.use('/routes/patients', patientRoutes);
 app.use('/routes/visits', visitRoutes);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${27017}`);
+  console.log(`Server is running on port ${5000}`);
 });
 

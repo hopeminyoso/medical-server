@@ -4,7 +4,7 @@ const router = express.Router();
 // Import the visitController to handle visit-related requests
 const visitController = require('../controllers/visitController');
 
-// Define routes for capturing visit information
+
 router.post('/visit', visitController.captureVisit);
 router.get('/visit', visitController.getAllVisits);
 router.get('/visit/:visitId', visitController.getVisitById);
