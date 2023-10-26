@@ -1,9 +1,13 @@
 const Patient = require('../models/patient');
 
-// Define the controller function for patient registration
 const registerPatient = async (req, res) => {
   try {
     const { registrationNumber, name, age, gender, height, weight } = req.body;
+
+    // Validate input data
+    if (!registrationNumber || !name || !age || !gender || !height || !weight) {
+      return res.status(400).json({ error: 'Invalid input data' });
+    }
 
     // Calculate BMI
     const bmi = weight / ((height / 100) ** 2);
@@ -24,13 +28,11 @@ const registerPatient = async (req, res) => {
 
     res.status(201).json(savedPatient);
   } catch (error) {
-    res.status(500).json({ error: 'Unable to register the patient.' });
+    res.status(500).json({ error: 'Unable to register the patient', details: error.message });
   }
 };
 
 module.exports = {
   registerPatient,
 };
-
-
 

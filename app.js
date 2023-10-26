@@ -9,13 +9,14 @@ const db = require('./config/database');
 // Connect to the MongoDB database
 mongoose.connect(db.dbURL, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
   .then(() => {
     console.log('Connected to the MongoDB database');
   })
   .catch((error) => {
     console.error('Error connecting to the database:', error);
+    process.exit(1); // Exit the application on database connection failure
   });
 
 // Middleware to parse JSON requests
@@ -29,6 +30,5 @@ app.use('/routes/patients', patientRoutes);
 app.use('/routes/visits', visitRoutes);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${5000}`);
+  console.log(`Server is running on port ${port}`);
 });
-

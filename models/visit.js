@@ -9,6 +9,9 @@ const visitSchema = new mongoose.Schema({
   },
  
 });
+  
+
+
 
 const Visit = mongoose.model('Visit', visitSchema);
 
