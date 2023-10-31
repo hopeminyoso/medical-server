@@ -26,8 +26,8 @@ app.use(express.json());
 const patientRoutes = require('./routes/patientRoutes');
 const visitRoutes = require('./routes/visitRoutes');
 
-app.use('/routes/patients', patientRoutes);
-app.use('/routes/visits', visitRoutes);
+app.use('/patients', patientRoutes);
+app.use('/visits', visitRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

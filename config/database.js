@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURL = 'mongodb://localhost:27017/Medical Server';
+const dbURL = 'mongodb://localhost:27017/medical-server'; 
 
 // Connect to the MongoDB database
 mongoose.connect(dbURL, {
@@ -21,4 +21,3 @@ db.once('open', () => {
 module.exports = {
   dbURL,
 };
-
