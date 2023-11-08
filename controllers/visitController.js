@@ -1,5 +1,5 @@
-const Visit = require('../models/visitModel');
-const Patient = require('../models/patientModel');
+const Visit = require('../models/visit');
+const Patient = require('../models/patient');
 
 exports.recordVisit = async (req, res, next) => {
   try {

@@ -25,7 +25,7 @@ app.use(express.json());
 // Import and use your patient and visit routes
 const patientRoutes = require('./routes/patientRoutes');
 const visitRoutes = require('./routes/visitRoutes');
-
+ 
 app.use('/patients', patientRoutes);
 app.use('/visits', visitRoutes);
 
